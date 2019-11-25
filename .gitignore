@@ -37,3 +37,12 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# Texture files
+*.svg
+*.svg.meta
+*.pdf
+*.pdf.meta
+
+# Import folder
+import/
+import.meta
