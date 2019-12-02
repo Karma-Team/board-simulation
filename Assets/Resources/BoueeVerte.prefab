@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6911621827753807885, guid: f93fe2bf3997db751a4fe440e03da8cb,
         type: 3}
       propertyPath: m_Name
-      value: bouee verte
+      value: BoueeVerte
       objectReference: {fileID: 0}
     - target: {fileID: 7615686708529259038, guid: f93fe2bf3997db751a4fe440e03da8cb,
         type: 3}
@@ -65,6 +65,11 @@ PrefabInstance:
     - target: {fileID: 7615686708529259038, guid: f93fe2bf3997db751a4fe440e03da8cb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220692443617582919, guid: f93fe2bf3997db751a4fe440e03da8cb,
+        type: 3}
+      propertyPath: _isRed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8267737252572367109, guid: f93fe2bf3997db751a4fe440e03da8cb,
