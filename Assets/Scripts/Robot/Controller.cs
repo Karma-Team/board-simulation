@@ -10,28 +10,68 @@ namespace Robot
         public WheelCollider FrontRightWheel;
         public WheelCollider RearLeftWheel;
         public WheelCollider RearRightWheel;
-        private Rigidbody body;
+        private Rigidbody _body;
+        public Rigidbody Body
+        {
+            get => _body;
+        }
 
         private readonly float enginePower = 150.0f;
         private float power = 0.0f;
+        private float _accelerator = 0.0f;
+        public float Accelerator
+        {
+            get
+            {
+                return _accelerator;
+            }
+            set
+            {
+                _accelerator = value;
+                power = _accelerator * enginePower * Time.deltaTime * 250.0f;
+            }
+        }
         private float brake = 0.0f;
+        private bool _brake = false;
+        public bool Brake
+        {
+            get
+            {
+                return _brake;
+            }
+            set
+            {
+                _brake = value;
+                brake = _brake ? _body.mass * 0.1f : 0.0f;
+            }
+        }
         private float steer = 0.0f;
+        private float _wheel = 0.0f;
+        public float Wheel
+        {
+            get
+            {
+                return _wheel;
+            }
+            set
+            {
+                _wheel = value;
+                steer = _wheel * maxSteer;
+            }
+        }
+
         private readonly float maxSteer = 25.0f;
 
         // Start is called before the first frame update
         void Start()
         {
-            body = GetComponent<Rigidbody>();
+            _body = GetComponent<Rigidbody>();
             //body.centerOfMass = new Vector3(0, -0.5f, 0.3f);
         }
 
         // Update is called once per frame
         void Update()
         {
-            power = Input.GetAxis("Vertical") * enginePower * Time.deltaTime * 250.0f;
-            steer = Input.GetAxis("Horizontal") * maxSteer;
-            brake = Input.GetKey("space") ? body.mass * 0.1f : 0.0f;
-
             FrontLeftWheel.steerAngle = steer;
             FrontRightWheel.steerAngle = steer;
 
