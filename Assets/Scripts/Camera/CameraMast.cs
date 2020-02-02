@@ -24,7 +24,7 @@ namespace CameraUtils
             var Bytes = Image.EncodeToPNG();
             Destroy(Image);
 
-            File.WriteAllBytes(Application.dataPath + "/output/capture.png", Bytes);
+            File.WriteAllBytes(Application.dataPath + "/../output/capture.png", Bytes);
         }
 
 
