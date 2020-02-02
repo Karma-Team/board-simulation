@@ -46,3 +46,7 @@ sysinfo.txt
 # Import folder
 import/
 import.meta
+
+# Application inout folder
+output/
+output.meta

@@ -6,18 +6,18 @@ namespace CameraUtils
 {
     public abstract class CameraUnit : MonoBehaviour
     {
-        private Camera cam;
+        protected Camera Cam;
         private bool _isActive;
         public void SwitchActivity(bool active)
         {
             _isActive = active;
-            cam.enabled = active;
+            Cam.enabled = active;
         }
 
         protected void InitCamera()
         {
-            cam = gameObject.GetComponent<Camera>();
-            if (cam == null)
+            Cam = gameObject.GetComponent<Camera>();
+            if (Cam == null)
             {
                 Debug.LogError("Can't find object Camera for CameraUnit...");
             }

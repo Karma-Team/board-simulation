@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UnityEngine.Windows.Directory.CreateDirectory(Application.dataPath + "/output");
     }
 
     // Update is called once per frame
