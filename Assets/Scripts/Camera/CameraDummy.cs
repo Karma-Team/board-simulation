@@ -10,7 +10,7 @@ namespace CameraUtils
         // Start is called before the first frame update
         void Start()
         {
-            InitCamera();
+
         }
 
         // Update is called once per frame
