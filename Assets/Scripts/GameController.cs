@@ -23,6 +23,27 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private bool _isPaused;
+    public bool IsPaused
+    {
+        get => _isPaused;
+        set => _isPaused = value;
+    }
+
+    private void SwitchPause()
+    {
+        IsPaused = !(IsPaused);
+        if (IsPaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +53,19 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("End application.");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SwitchPause();
+        }
     }
 }
