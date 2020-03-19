@@ -67,6 +67,17 @@ namespace Robot
         {
             _body = GetComponent<Rigidbody>();
             //body.centerOfMass = new Vector3(0, -0.5f, 0.3f);
+
+            // Load Aruco Code
+            int ArucoSelected = Random.Range(1, 10);
+            string ArucoPath = string.Format("ArucoCodes/aruco{0:d2}", ArucoSelected);
+            Debug.Log("Selected Aruco code " + ArucoSelected + ", path: " + ArucoPath);
+            Texture2D ArucoTex = Resources.Load<Texture2D>(ArucoPath);
+
+            // Apply to Material
+            Material ArucoRen = GetComponent<Renderer>().materials[0];
+            ArucoRen.mainTexture = ArucoTex;
+
         }
 
         // Update is called once per frame
